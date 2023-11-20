@@ -52,6 +52,7 @@ bot.onText(/\/start/, async (msg) => {
         student_name = `${msg.chat.first_name} ${msg.chat.last_name}`
     }
     const createRecord = await airtable.createRecord(chat_id, student_name);
+   
     bot.sendMessage(msg.chat.id, createRecord);
 })
 
@@ -67,14 +68,14 @@ bot.onText(/\/stop/, async (msg) => {
 })
 
 /**
- * When entities == undefiend states that the message received is a text message and not a command
+ * .When entities == undefiend states that the message received is a text message and not a command
  * Send the text message to store_response function to check if it belongs to the list message.
  */
 bot.on('message', msg => {
     //console.log(msg.entities == undefined)
     if (msg.entities == undefined) {
         console.log(`Message Received ${msg.text} by ${msg.chat.id}`)
-
+       
         main.store_responses(msg.chat.id, msg.text).then().catch(e => { console.log("Store response error " + e) });
 
     }
@@ -115,6 +116,7 @@ bot.on('callback_query', function onCallbackQuery(example) {
 bot.on("polling_error", console.log);
 
 const hideInlineKeyboard = (chat_id, msg_id) => {
+    console.llg("hii")
     bot.editMessageReplyMarkup({
         reply_markup: {
 

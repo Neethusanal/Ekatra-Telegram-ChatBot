@@ -4,6 +4,7 @@ var Airtable = require('airtable');
 require('dotenv').config();
 
 var base = new Airtable({ apiKey: process.env.apiKey }).base(process.env.base);
+
 table = base('Telegram-Students')
 
 /**
@@ -143,7 +144,7 @@ const findTable = async (number) => {
     course_tn = ""
     course_table.forEach(function (record) {
       course_tn = record.get("Course")
-      //    console.log("Table Name = " + record.get("Course"))
+         // console.log("Table Name = " + record.get("Course"))
       resolve(course_tn)
       reject("error")
 
