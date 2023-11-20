@@ -61,7 +61,7 @@ bot.onText(/\/start/, async (msg) => {
 bot.onText(/\/stop/, async (msg) => {
     chat_id = msg.chat.id
 
-    await airtable.deleteRecord(chat_id);
+    await airtable.deleteRecord(chat_id).catch(err => console.error(err));
     bot.sendMessage(msg.chat.id, "Deleted");
 
 })

@@ -41,7 +41,7 @@ const createRecord = async (chat_id, name) => {
     view: "Grid view"
   }).all();
   var len = students.length;
-  // console.log(len)
+  console.log(len)
   return new Promise((resolve, reject) => {
     if (len == 0) {
 
