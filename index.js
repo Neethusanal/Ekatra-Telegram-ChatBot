@@ -72,6 +72,7 @@ bot.onText(/\/stop/, async (msg) => {
  * Send the text message to store_response function to check if it belongs to the list message.
  */
 bot.on('message', msg => {
+    console.log("XXX")
     //console.log(msg.entities == undefined)
     if (msg.entities == undefined) {
         console.log(`Message Received ${msg.text} by ${msg.chat.id}`)
